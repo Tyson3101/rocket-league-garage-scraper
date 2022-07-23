@@ -32,7 +32,7 @@ app.get("/wheels", async (req, res) => {
 });
 
 async function getItems(category: string) {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
   const page = await browser.newPage();
   await page.goto("https://rocket-league.com/items/" + category);
   await page.waitForSelector(".rlg-item__container");
