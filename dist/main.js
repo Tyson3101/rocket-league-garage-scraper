@@ -10,7 +10,7 @@ app.use(express_1.default.json());
 app.use(cors_1.default({ origin: "http://localhost:3000" }));
 const puppeteer_1 = __importDefault(require("puppeteer"));
 app.get("/", (req, res) => {
-    res.send("Available Items: /cars /decals /boosts /wheels /explosions");
+    res.send(`Available Items: <a href="/cars">/cars</a> <a href="/decals">/decals</a> <a href="/boosts">/boosts</a> <a href="/wheels">/wheels</a> <a href="/explosions">/explosions</a>`);
 });
 app.get("/cars", async (req, res) => {
     res.json(await getItems("bodies"));
